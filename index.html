@@ -1,5 +1,14 @@
 <html>
 <head>
+
+
+  <script src="https://widget.bugherd.com/v1.js" defer async>
+  {
+    "endpoint": "https://app.getstack.io/bugherd",
+    "projectId": 4358
+  }
+  </script>
+<!-- THIS STUFF IS TO TEST SCREENSHOTS -->
   <link rel="stylesheet" media="all" href="test.css" />
   <link rel="stylesheet" media="all" href="http.css" />
   <style type="text/css">
@@ -10,14 +19,259 @@
     .inline { color:green;}
 
   </style>
+<!-- END OF SCREENSHOT TESTS -->
+
+
+<!--THIS STUFF IS TO TRY AND BREAK BUGHERD UI -->
+  <!--obnoxious styles -->
+  <style>
+    svg, iframe { outline:1px solid green !important; border:1px solid blue !important;  }
+
+  </style>
+
+  <!--obnoxious scripts-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script>
-    console.log('nothing to see here');
+  window.setTimeout(function(){
+    console.log("being obnoxious");
+
+    $("iframe").css("border", "1px solid red");
+    $("svg").css("border", "1px solid red");
+
+    $("iframe").width("100%");
+  },5000);
   </script>
-<script src="https://widget.bugherd.com/v1.js" defer async>
-  {
-    "endpoint": "https://app.getstack.io/bugherd",
-    "projectId": 4358
+
+<!-- END TRY TO BREAK BUGHERD UI -->
+
+<!--Geocities scripts-->
+
+
+<style type="text/css">
+
+#marqueecontainer{
+position: relative;
+width: 200px; /*marquee width */
+height: 200px; /*marquee height */
+background-color: white;
+overflow: hidden;
+border: 3px solid orange;
+padding: 2px;
+padding-left: 4px;
+}
+
+</style>
+
+<script type="text/javascript">
+
+/***********************************************
+* Cross browser Marquee II- © Dynamic Drive (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit http://www.dynamicdrive.com/ for this script and 100s more.
+***********************************************/
+
+var delayb4scroll=2000 //Specify initial delay before marquee starts to scroll on page (2000=2 seconds)
+var marqueespeed=2 //Specify marquee scroll speed (larger is faster 1-10)
+var pauseit=1 //Pause marquee onMousever (0=no. 1=yes)?
+
+////NO NEED TO EDIT BELOW THIS LINE////////////
+
+var copyspeed=marqueespeed
+var pausespeed=(pauseit==0)? copyspeed: 0
+var actualheight=''
+
+function scrollmarquee(){
+if (parseInt(cross_marquee.style.top)>(actualheight*(-1)+8))
+cross_marquee.style.top=parseInt(cross_marquee.style.top)-copyspeed+"px"
+else
+cross_marquee.style.top=parseInt(marqueeheight)+8+"px"
+}
+
+function initializemarquee(){
+cross_marquee=document.getElementById("vmarquee")
+cross_marquee.style.top=0
+marqueeheight=document.getElementById("marqueecontainer").offsetHeight
+actualheight=cross_marquee.offsetHeight
+if (window.opera || navigator.userAgent.indexOf("Netscape/7")!=-1){ //if Opera or Netscape 7x, add scrollbars to scroll and exit
+cross_marquee.style.height=marqueeheight+"px"
+cross_marquee.style.overflow="scroll"
+return
+}
+setTimeout('lefttime=setInterval("scrollmarquee()",30)', delayb4scroll)
+}
+
+if (window.addEventListener)
+window.addEventListener("load", initializemarquee, false)
+else if (window.attachEvent)
+window.attachEvent("onload", initializemarquee)
+else if (document.getElementById)
+window.onload=initializemarquee
+
+
+</script>
+<style type="text/css">
+.matrix { font-family:Lucida Console, Courier, Monotype; font-size:10pt; text-align:center; width:10px; padding:0px; margin:0px;}
+</style>
+
+<script type="text/javascript" language="JavaScript">
+
+<!--
+var rows=11; // must be an odd number
+var speed=50; // lower is faster
+var reveal=2; // between 0 and 2 only. The higher, the faster the word appears
+var effectalign="default" //enter "center" to center it.
+
+/***********************************************
+* The Matrix Text Effect- by Richard Womersley (http://www.mf2fm.co.uk/rv)
+* This notice must stay intact for use
+* Visit http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+var w3c=document.getElementById && !window.opera;;
+var ie45=document.all && !window.opera;
+var ma_tab, matemp, ma_bod, ma_row, x, y, columns, ma_txt, ma_cho;
+var m_coch=new Array();
+var m_copo=new Array();
+window.onload=function() {
+  if (!w3c && !ie45) return
+  var matrix=(w3c)?document.getElementById("matrix"):document.all["matrix"];
+  ma_txt=(w3c)?matrix.firstChild.nodeValue:matrix.innerHTML;
+  ma_txt=" "+ma_txt+" ";
+  columns=ma_txt.length;
+  if (w3c) {
+    while (matrix.childNodes.length) matrix.removeChild(matrix.childNodes[0]);
+    ma_tab=document.createElement("table");
+    ma_tab.setAttribute("border", 0);
+    ma_tab.setAttribute("align", effectalign);
+    ma_tab.style.backgroundColor="#000000";
+    ma_bod=document.createElement("tbody");
+    for (x=0; x<rows; x++) {
+      ma_row=document.createElement("tr");
+      for (y=0; y<columns; y++) {
+        matemp=document.createElement("td");
+        matemp.setAttribute("id", "Mx"+x+"y"+y);
+        matemp.className="matrix";
+        matemp.appendChild(document.createTextNode(String.fromCharCode(160)));
+        ma_row.appendChild(matemp);
+      }
+      ma_bod.appendChild(ma_row);
+    }
+    ma_tab.appendChild(ma_bod);
+    matrix.appendChild(ma_tab);
+  } else {
+    ma_tab='<ta'+'ble align="'+effectalign+'" border="0" style="background-color:#000000">';
+    for (var x=0; x<rows; x++) {
+      ma_tab+='<t'+'r>';
+      for (var y=0; y<columns; y++) {
+        ma_tab+='<t'+'d class="matrix" id="Mx'+x+'y'+y+'"> </'+'td>';
+      }
+      ma_tab+='</'+'tr>';
+    }
+    ma_tab+='</'+'table>';
+    matrix.innerHTML=ma_tab;
   }
+  ma_cho=ma_txt;
+  for (x=0; x<columns; x++) {
+    ma_cho+=String.fromCharCode(32+Math.floor(Math.random()*94));
+    m_copo[x]=0;
+  }
+  ma_bod=setInterval("mytricks()", speed);
+}
+
+function mytricks() {
+  x=0;
+  for (y=0; y<columns; y++) {
+    x=x+(m_copo[y]==100);
+    ma_row=m_copo[y]%100;
+    if (ma_row && m_copo[y]<100) {
+      if (ma_row<rows+1) {
+        if (w3c) {
+          matemp=document.getElementById("Mx"+(ma_row-1)+"y"+y);
+          matemp.firstChild.nodeValue=m_coch[y];
+        }
+        else {
+          matemp=document.all["Mx"+(ma_row-1)+"y"+y];
+          matemp.innerHTML=m_coch[y];
+        }
+        matemp.style.color="#33ff66";
+        matemp.style.fontWeight="bold";
+      }
+      if (ma_row>1 && ma_row<rows+2) {
+        matemp=(w3c)?document.getElementById("Mx"+(ma_row-2)+"y"+y):document.all["Mx"+(ma_row-2)+"y"+y];
+        matemp.style.fontWeight="normal";
+        matemp.style.color="#00ff00";
+      }
+      if (ma_row>2) {
+          matemp=(w3c)?document.getElementById("Mx"+(ma_row-3)+"y"+y):document.all["Mx"+(ma_row-3)+"y"+y];
+        matemp.style.color="#009900";
+      }
+      if (ma_row<Math.floor(rows/2)+1) m_copo[y]++;
+      else if (ma_row==Math.floor(rows/2)+1 && m_coch[y]==ma_txt.charAt(y)) zoomer(y);
+      else if (ma_row<rows+2) m_copo[y]++;
+      else if (m_copo[y]<100) m_copo[y]=0;
+    }
+    else if (Math.random()>0.9 && m_copo[y]<100) {
+      m_coch[y]=ma_cho.charAt(Math.floor(Math.random()*ma_cho.length));
+      m_copo[y]++;
+    }
+  }
+  if (x==columns) clearInterval(ma_bod);
+}
+
+function zoomer(ycol) {
+  var mtmp, mtem, ytmp;
+  if (m_copo[ycol]==Math.floor(rows/2)+1) {
+    for (ytmp=0; ytmp<rows; ytmp++) {
+      if (w3c) {
+        mtmp=document.getElementById("Mx"+ytmp+"y"+ycol);
+        mtmp.firstChild.nodeValue=m_coch[ycol];
+      }
+      else {
+        mtmp=document.all["Mx"+ytmp+"y"+ycol];
+        mtmp.innerHTML=m_coch[ycol];
+      }
+      mtmp.style.color="#33ff66";
+      mtmp.style.fontWeight="bold";
+    }
+    if (Math.random()<reveal) {
+      mtmp=ma_cho.indexOf(ma_txt.charAt(ycol));
+      ma_cho=ma_cho.substring(0, mtmp)+ma_cho.substring(mtmp+1, ma_cho.length);
+    }
+    if (Math.random()<reveal-1) ma_cho=ma_cho.substring(0, ma_cho.length-1);
+    m_copo[ycol]+=199;
+    setTimeout("zoomer("+ycol+")", speed);
+  }
+  else if (m_copo[ycol]>200) {
+    if (w3c) {
+      mtmp=document.getElementById("Mx"+(m_copo[ycol]-201)+"y"+ycol);
+      mtem=document.getElementById("Mx"+(200+rows-m_copo[ycol]--)+"y"+ycol);
+    }
+    else {
+      mtmp=document.all["Mx"+(m_copo[ycol]-201)+"y"+ycol];
+      mtem=document.all["Mx"+(200+rows-m_copo[ycol]--)+"y"+ycol];
+    }
+    mtmp.style.fontWeight="normal";
+    mtem.style.fontWeight="normal";
+    setTimeout("zoomer("+ycol+")", speed);
+  }
+  else if (m_copo[ycol]==200) m_copo[ycol]=100+Math.floor(rows/2);
+  if (m_copo[ycol]>100 && m_copo[ycol]<200) {
+    if (w3c) {
+      mtmp=document.getElementById("Mx"+(m_copo[ycol]-101)+"y"+ycol);
+      mtmp.firstChild.nodeValue=String.fromCharCode(160);
+      mtem=document.getElementById("Mx"+(100+rows-m_copo[ycol]--)+"y"+ycol);
+      mtem.firstChild.nodeValue=String.fromCharCode(160);
+    }
+    else {
+      mtmp=document.all["Mx"+(m_copo[ycol]-101)+"y"+ycol];
+      mtmp.innerHTML=String.fromCharCode(160);
+      mtem=document.all["Mx"+(100+rows-m_copo[ycol]--)+"y"+ycol];
+      mtem.innerHTML=String.fromCharCode(160);
+    }
+    setTimeout("zoomer("+ycol+")", speed);
+  }
+}
+// -->
 </script>
 
 </head>
@@ -45,8 +299,310 @@
     my_gradient.addColorStop(1, "white");
     context.fillStyle = my_gradient;
     context.fillRect(0, 0, 300, 225);
-
   </script>
+
+<h1>Geocities Zone</h1>
+<script language="JavaScript">
+
+//Watching Eyes script- By Kurt (kurt.grigg@virgin.net)
+//Script featured on Dynamic Drive
+//Visit http://www.dynamicdrive.com for this script and more
+
+pic0=new Image();
+pic0.src="eye.gif";
+pic1=new Image();
+pic1.src="pupils.gif";
+
+var n4=(document.layers);
+var n6=(document.getElementById&&!document.all);
+var ie=(document.all);
+var O=(navigator.appName.indexOf("Opera") != -1)?true:false;
+var _d=(n4||ie)?'document.':'document.getElementById("';
+var _a=(n4||n6)?'':'all.';
+var _r=(n6)?'")':'';
+var _s=(n4)?'':'.style';
+if (n4){
+document.write('<layer name="eyeball" top=0 left=0 width="69" height="34"><img src="eye.gif" width="69" height="34"></layer>');
+document.write('<layer name="pupil1" top=0 left=0 width="13" height="13"><img src="pupils.gif" width="13" height="13"></layer>');
+document.write('<layer name="pupil2" top:0 left=0 width="13" height="13"><img src="pupils.gif" width="13" height="13"></layer>');
+}
+else{
+if (ie)
+document.write('<div id="ic" style="position:absolute;top:0;left:0"><div style="position:relative">');
+document.write('<div id="eyeball" style="position:absolute;top:100px;left:100px;width:69px;height:34px"><img src="eye.gif" width="69" height="34"></div>');
+document.write('<div id="pupil1" style="position:absolute;top:0px;left:0px;width:12px;height:13px"><img src="pupils.gif" width="13" height="13"></div>');
+document.write('<div id="pupil2" style="position:absolute;top:0px;left:0px;width:12px;height:13px"><img src="pupils.gif" width="13" height="13"></div>');
+if (ie)
+document.write('</div></div>');
+}
+var ym=0;
+var xm=0;
+if (n4||n6){
+ window.captureEvents(Event.MOUSEMOVE);
+ function mouseNS(e){
+ ym = e.pageY-window.pageYOffset;
+ xm = e.pageX;
+ }
+if (n4)window.onMouseMove=mouseNS;
+if (n6)document.onmousemove=mouseNS;
+}
+if (ie||O){
+ function mouseIEO(){
+ ym = (ie)?event.clientY:event.clientY-window.pageYOffset;
+ xm = event.clientX;
+ }
+document.onmousemove=mouseIEO;
+}
+var etemp=eval(_d+_a+"eyeball"+_r+_s); 
+var p1temp=eval(_d+_a+"pupil1"+_r+_s);
+var p2temp=eval(_d+_a+"pupil2"+_r+_s);
+dy=0;
+dx=0;
+fy=0;
+fx=0;
+angle1=0;
+angle2=0;
+d1=0;
+d2=0;
+function makefollow(){
+sy=(!ie)?window.pageYOffset:0;
+wy=(ie)?document.body.clientHeight:window.innerHeight;
+wx=(ie)?document.body.clientWidth:window.innerWidth;
+//Keep eyes on screen. Netscape 6 plays up otherwise!
+var chy=Math.floor(fy-34);
+if (chy <= 0) chy = 0;
+if (chy >= wy-34) chy = wy-34;
+var chx=Math.floor(fx-34);
+if (chx <= 0) chx = 0;
+if (chx >= wx-69) chx = wx-69;
+etemp.top=chy+sy;
+etemp.left=chx;
+//eyeball1 centre.
+c1y=parseInt(etemp.top)+17;
+c1x=parseInt(etemp.left)+17;
+//eyeball2 centre.
+c2y=parseInt(etemp.top)+17;
+c2x=parseInt(etemp.left)+52;
+dy1 = ym+sy - c1y;
+dx1 = xm - c1x;
+d1 = Math.sqrt(dy1*dy1 + dx1*dx1);
+dy2 = ym+sy - c2y;
+dx2 = xm - c2x;
+d2 = Math.sqrt(dy2*dy2 + dx2*dx2);
+ay1 = ym+sy - c1y;
+ax1 = xm - c1x;
+angle1 = Math.atan2(ay1,ax1)*180/Math.PI;
+ay2 = ym+sy - c2y;
+ax2 = xm - c2x;
+angle2 = Math.atan2(ay2,ax2)*180/Math.PI;
+dv=1.7;
+p1temp.top=(d1 < 17)?(c1y-6+d1/dv*Math.sin(angle1*Math.PI/180)):(c1y-6+10*Math.sin(angle1*Math.PI/180));
+p1temp.left=(d1 < 17)?(c1x-6+d1/dv*Math.cos(angle1*Math.PI/180)):(c1x-6+10*Math.cos(angle1*Math.PI/180));
+p2temp.top=(d2 < 17)?(c2y-6+d2/dv*Math.sin(angle2*Math.PI/180)):(c2y-6+10*Math.sin(angle2*Math.PI/180));
+p2temp.left=(d2 < 17)?(c2x-6+d2/dv*Math.cos(angle2*Math.PI/180)):(c2x-6+10*Math.cos(angle2*Math.PI/180));
+}
+function move(){
+if (ie)ic.style.top=document.body.scrollTop;
+dy=fy+=(ym-fy)*0.12-2;
+dx=fx+=(xm-fx)*0.12;
+makefollow();
+setTimeout('move()',10);
+}
+window.onload=move;
+//-->
+</script>
+
+
+<script type="text/javascript">
+
+/******************************************
+* Snow Effect Script- By Altan d.o.o. (http://www.altan.hr/snow/index.html)
+* Visit Dynamic Drive DHTML code library (http://www.dynamicdrive.com/) for full source code
+* Last updated Nov 9th, 05' by DD. This notice must stay intact for use
+******************************************/
+  
+  //Configure below to change URL path to the snow image
+  var snowsrc="snow.png"
+  // Configure below to change number of snow to render
+  var no = 10;
+  // Configure whether snow should disappear after x seconds (0=never):
+  var hidesnowtime = 0;
+  // Configure how much snow should drop down before fading ("windowheight" or "pageheight")
+  var snowdistance = "pageheight";
+
+///////////Stop Config//////////////////////////////////
+
+  var ie4up = (document.all) ? 1 : 0;
+  var ns6up = (document.getElementById&&!document.all) ? 1 : 0;
+
+  function iecompattest(){
+  return (document.compatMode && document.compatMode!="BackCompat")? document.documentElement : document.body
+  }
+
+  var dx, xp, yp;    // coordinate and position variables
+  var am, stx, sty;  // amplitude and step variables
+  var i, doc_width = 800, doc_height = 600; 
+  
+  if (ns6up) {
+    doc_width = self.innerWidth;
+    doc_height = self.innerHeight;
+  } else if (ie4up) {
+    doc_width = iecompattest().clientWidth;
+    doc_height = iecompattest().clientHeight;
+  }
+
+  dx = new Array();
+  xp = new Array();
+  yp = new Array();
+  am = new Array();
+  stx = new Array();
+  sty = new Array();
+  snowsrc=(snowsrc.indexOf("dynamicdrive.com")!=-1)? "snow.gif" : snowsrc
+  for (i = 0; i < no; ++ i) {  
+    dx[i] = 0;                        // set coordinate variables
+    xp[i] = Math.random()*(doc_width-50);  // set position variables
+    yp[i] = Math.random()*doc_height;
+    am[i] = Math.random()*20;         // set amplitude variables
+    stx[i] = 0.02 + Math.random()/10; // set step variables
+    sty[i] = 0.7 + Math.random();     // set step variables
+    if (ie4up||ns6up) {
+      if (i == 0) {
+        document.write("<div id=\"dot"+ i +"\" style=\"POSITION: absolute; Z-INDEX: "+ i +"; VISIBILITY: visible; TOP: 15px; LEFT: 15px;\"><a href=\"http://dynamicdrive.com\"><img src='"+snowsrc+"' border=\"0\"><\/a><\/div>");
+      } else {
+        document.write("<div id=\"dot"+ i +"\" style=\"POSITION: absolute; Z-INDEX: "+ i +"; VISIBILITY: visible; TOP: 15px; LEFT: 15px;\"><img src='"+snowsrc+"' border=\"0\"><\/div>");
+      }
+    }
+  }
+
+  function snowIE_NS6() {  // IE and NS6 main animation function
+    doc_width = ns6up?window.innerWidth-10 : iecompattest().clientWidth-10;
+    doc_height=(window.innerHeight && snowdistance=="windowheight")? window.innerHeight : (ie4up && snowdistance=="windowheight")?  iecompattest().clientHeight : (ie4up && !window.opera && snowdistance=="pageheight")? iecompattest().scrollHeight : iecompattest().offsetHeight;
+    for (i = 0; i < no; ++ i) {  // iterate for every dot
+      yp[i] += sty[i];
+      if (yp[i] > doc_height-50) {
+        xp[i] = Math.random()*(doc_width-am[i]-30);
+        yp[i] = 0;
+        stx[i] = 0.02 + Math.random()/10;
+        sty[i] = 0.7 + Math.random();
+      }
+      dx[i] += stx[i];
+      document.getElementById("dot"+i).style.top=yp[i]+"px";
+      document.getElementById("dot"+i).style.left=xp[i] + am[i]*Math.sin(dx[i])+"px";  
+    }
+    snowtimer=setTimeout("snowIE_NS6()", 10);
+  }
+
+  function hidesnow(){
+    if (window.snowtimer) clearTimeout(snowtimer)
+    for (i=0; i<no; i++) document.getElementById("dot"+i).style.visibility="hidden"
+  }
+    
+
+if (ie4up||ns6up){
+    snowIE_NS6();
+    if (hidesnowtime>0)
+    setTimeout("hidesnow()", hidesnowtime*1000)
+    }
+
+</script>
+
+<div id="matrix">Holy shit balls it's the matrix</div>
+
+
+<h2><script language="JavaScript1.2">
+
+//Neon Lights Text II by G.P.F. (gpf@beta-cc.de)
+//visit http://www.beta-cc.de
+//Visit http://www.dynamicdrive.com for this script 
+
+var message="THIS IS AMAZING!!!"
+var neonbasecolor="black"
+var neontextcolor="yellow"
+var neontextcolor2="#FFFFA8"
+var flashspeed=100            // speed of flashing in milliseconds
+var flashingletters=3           // number of letters flashing in neontextcolor
+var flashingletters2=1            // number of letters flashing in neontextcolor2 (0 to disable)
+var flashpause=0            // the pause between flash-cycles in milliseconds
+
+///No need to edit below this line/////
+
+var n=0
+if (document.all||document.getElementById){
+document.write('<font color="'+neonbasecolor+'">')
+for (m=0;m<message.length;m++)
+document.write('<span id="neonlight'+m+'">'+message.charAt(m)+'</span>')
+document.write('</font>')
+}
+else
+document.write(message)
+
+function crossref(number){
+var crossobj=document.all? eval("document.all.neonlight"+number) : document.getElementById("neonlight"+number)
+return crossobj
+}
+
+function neon(){
+
+//Change all letters to base color
+if (n==0){
+for (m=0;m<message.length;m++)
+crossref(m).style.color=neonbasecolor
+}
+
+//cycle through and change individual letters to neon color
+crossref(n).style.color=neontextcolor
+
+if (n>flashingletters-1) crossref(n-flashingletters).style.color=neontextcolor2 
+if (n>(flashingletters+flashingletters2)-1) crossref(n-flashingletters-flashingletters2).style.color=neonbasecolor
+
+
+if (n<message.length-1)
+n++
+else{
+n=0
+clearInterval(flashing)
+setTimeout("beginneon()",flashpause)
+return
+}
+}
+
+function beginneon(){
+if (document.all||document.getElementById)
+flashing=setInterval("neon()",flashspeed)
+}
+beginneon()
+
+
+</script></h2>
+<div id="marqueecontainer" onMouseover="copyspeed=pausespeed" onMouseout="copyspeed=marqueespeed">
+<div id="vmarquee" style="position: absolute; width: 98%;">
+
+<!--YOUR SCROLL CONTENT HERE-->
+
+<h4>Welcome to the my Little Pony CLUB</h4>
+<p> celebrate your love of all things my little pony</p>
+<a>visit the my little pony webring</a>
+
+<!--YOUR SCROLL CONTENT HERE-->
+
+</div>
+</div>
+
+
+
+
+  <h1>Deprecated HTML Zone</h1>
+  <center>this text is centered maybe?</center>
+  <marquee direction="down" width="250" height="200" behavior="alternate" style="border:solid">
+    <marquee behavior="alternate">
+      Super exciting mega fun times!!
+    </marquee>
+  </marquee>
+  <p>The <acronym title="World Wide Web">WWW</acronym> is only one component of the Internet.</p>
+  <blink>I can't believe this shit still works</blink>
+
+  <plaintext>yo this is plaintext maybe?</plaintext>
+  <p>how bad is the plaintext tag??</p>
 
 </body>
 </html>
